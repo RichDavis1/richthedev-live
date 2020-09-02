@@ -1,0 +1,106 @@
+{{define "content"}}
+    <div class="container" id="single-post">
+        <div class="categories-wrapper">   
+            {{if .Cats}}
+                {{range .Cats}}
+                    <div class="category-tab" style="border-color: {{ .BackgroundColor| safeHtml }}">
+                        <div class="category-item" style="color: {{ .BackgroundColor| safeHtml }}">{{.Label}}</div>
+                    </div>                       
+                {{end}}
+            {{end}}    
+        </div>
+
+        <div class="blog-header">
+            <h2>{{.Title}}</h2>
+        </div>
+        <div class="blog-additional fw">
+            {{if .GithubLink}}
+                <div class="link-wrap ttip">
+                    <a href="{{.GithubLink}}" target="_blank"><div id="github-link"></div></a>
+                    <div class="tttext">
+                        Check Code on Github
+                    </div>
+                </div>    
+            {{end}}
+            {{if .ComposerLink}}
+            <div class="link-wrap ttip">
+                <a href="{{.ComposerLink}}" target="_blank"><div id="composer-link"></div></a>
+                <div class="tttext">
+                    Download Package on Composer
+                </div>    
+            </div>  
+            {{end}}
+
+        </div>
+        <div class="blog-body">
+            <p>
+            <br>    
+            Curiosity has led me on many adventures. One of the aspects I find most appealing about writing software
+            is disruption is always just a few keystrokes away. You're never far from it. All it takes is that one rogue-thought to begin your next journey.
+            </p>
+            <p>
+                <br>
+                There is a licensing examination our core user base must prepare for. As such, every product in the space, including us,
+                provides a simulation exam for users to practice. One day, our tech lead tasked me with tracking down a needle-in-a-haystack bug plagueing said simulation exam. 
+                The bug was causing users tests to end prematurely with a 500 fatal.
+            </p>
+            <p>
+                <br>
+                After a couple of minutes, the bug was discovered and fixed. However, upon reviewing our process for the simulation exam, I had a hunch that we could do much better.
+                This curiously led me to google where I discovered that the real examination was a computer adaptive test.                 
+            </p>
+            <p>
+                <br>
+                A computer adaptive test (CAT) is a dynamic assessment where the next question provided to a user is based on the users evolving ability throughout the test.
+                After each question answer, the algorithm will estimate the candidates ability, and deliver a harder question if answered correctly, and easier if incorrect.
+                Speaking simply, the test difficulty scales with the user: If a candidate is answering many questions correctly, the algorithm will deliver them progressively harder questions, the inverse being true for those with lower abilities.
+                Once it's been determined that the candidate has an ability above a specified threshold, they have completed & passed the test.
+                This form of testing helps avoid the one-size-fits-all approach of traditional testing and also shorter tests for candidates with a high ability.
+            </p>
+            <p>
+                <br>
+                Always in the mood for larger product builds, I set forth investigating adequate algorithms to truly simulate this exam.  
+                Fast-forward a hundred or so google tabs, a couple all nighters, and about a dozen excel models, I had worked out the algorithm for our specific situation and a working implementation.                   
+            </p>               
+            <p>
+                <br>
+                This implementation has since become a patent-pending product for us and the only true CAT test in the market. 
+                While I can't make the code public for obvious reasons, I can provide an interactive example, enjoy.               
+            </p>            
+
+            <div class="cat-container">
+                <h2 class="action-item tc">Try for yourself</h2>
+                <div id="ability-chart">
+                </div>
+                <div class="test-interaction fwc">
+                    <div class="mrm">Answer: </div>
+                    <div class="fw answers-wrap">                
+                        <div class="prm answer-trigger ttip" data-a="1">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <div class="tttext">
+                                Correct answer
+                            </div>                        
+                        </div>
+                        <div class="answer-trigger ttip" data-a="0">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            <div class="tttext">
+                                Incorrect answer
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+                <div class="test-instruction tc">
+                    To start the test, simply start clicking the checkmark for a correct answer or the X for incorrect.
+                    Be sure to mix up incorrect and correct answers like so: 1 correct, 2 incorrect.
+                </div>
+                <div class="test-instruction"></div>
+            </div>
+            <input type="hidden" id="testi"/>  
+        </div>
+    </div>    
+{{end}}
+
+{{define "media_foot"}}
+    <script src="/assets/js/projects.bundle.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{{end}}

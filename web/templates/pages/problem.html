@@ -1,0 +1,27 @@
+{{define "content"}}
+    <div class="container" id="single-post">
+        <div class="categories-wrapper">   
+            {{if .Cats}}
+                {{range .Cats}}
+                    <div class="category-tab" style="border-color: {{ .BackgroundColor| safeHtml }}">
+                        <div class="category-item" style="color: {{ .BackgroundColor| safeHtml }}">{{.Label}}</div>
+                    </div>                       
+                {{end}}
+            {{end}}    
+        </div>
+        <div class="blog-header">
+            <h2>{{.Title}}</h2>
+        </div>
+        <div class="blog-additional fw">
+            {{if .GithubLink}}
+                <div class="link-wrap ttip">
+                    <a href="{{.GithubLink}}" target="_blank"><div id="github-link"></div></a>
+                    <div class="tttext">
+                        Check Code on Github
+                    </div>
+                </div>    
+            {{end}}
+        </div>
+        <div class="blog-body">{{noescape .Content}}</div>
+    </div>    
+{{end}}

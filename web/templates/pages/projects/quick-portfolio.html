@@ -1,0 +1,117 @@
+{{define "content"}}
+    <div class="container" id="single-post">
+        <div class="categories-wrapper">   
+            {{if .Cats}}
+                {{range .Cats}}
+                    <div class="category-tab" style="border-color: {{ .BackgroundColor| safeHtml }}">
+                        <div class="category-item" style="color: {{ .BackgroundColor| safeHtml }}">{{.Label}}</div>
+                    </div>                       
+                {{end}}
+            {{end}}    
+        </div>
+
+        <div class="blog-header">
+            <h2>{{.Title}}</h2>
+        </div>
+        <div class="blog-additional fw">
+            {{if .GithubLink}}
+                <div class="link-wrap ttip">
+                    <a href="{{.GithubLink}}" target="_blank"><div id="github-link"></div></a>
+                    <div class="tttext">
+                        Check Code on Github
+                    </div>
+                </div>    
+            {{end}}
+            {{if .ComposerLink}}
+            <div class="link-wrap ttip">
+                <a href="{{.ComposerLink}}" target="_blank"><div id="composer-link"></div></a>
+                <div class="tttext">
+                    Download Package on Composer
+                </div>    
+            </div>  
+            {{end}}
+
+        </div>
+        <div class="blog-body">
+            <p> 
+                
+            </p>
+            <p>          
+                I always have my nose in some kind of a project. Throughout the years, I've traversed so many spontaneous builds that I lost track. 
+                I wanted to create some kind of central repository where I could quickly type up my solutions to the irregular problems I face on the regular and larger projects I've worked on.            
+            </p>               
+            <p>
+                Welcome to the solution to that problem! RichThe.Dev is built on top of Laravel using the usual suspects: PHP, jQuery, Vue.js, SASS, and MySql.
+            </p>
+            <p>
+                After finding myself scouring the cscareerquestions subreddit, I noticed that an abundant amount of ambitious junior devs were eager to quickly create their own portfolio website.
+                However, many of these devs have a focus on languages that aren't traditionally used for web development.
+            </p>    
+            <p>
+                I decided to repurpose this site and package it on github to help these aspiring developers get their site up and running with no hassle.
+            </p>   
+            <p>
+                Installation is easy: clone repo, cd into it from CLI, update .env with your creds, then run:
+                <br>
+                <code>
+                    $ composer install
+                </code>
+                <br>
+                <code>
+                    $ composer dumpautoload -o
+                </code>          
+                <br>
+                <code>
+                    $ php artisan key:generate
+                </code>    
+                <br>
+                <code>
+                    npm run dev
+                </code>     
+                <br>
+                <code>
+                    php artisan serve
+                </code>   
+                <br>
+                And you're all ready to go!          
+            </p>
+            <br>
+            <p>
+                <h4>Key Features:</h4> 
+            </p>
+            <p>
+                <h5>Create & manage posts for your projects seamlessly from your admin dashboard</h5>
+                <br>
+                <img src="/assets/images/quick-portfolio/admin-posts.jpg" width="450px">
+
+                <br>
+                <br>
+                <img src="/assets/images/quick-portfolio/admin-create.jpg" width="450px">               
+            </p>
+            <br>
+            <p>
+                <h5>Customize your site and add categories for languages and technologies you work with</h5>
+                <br>
+                <img src="/assets/images/quick-portfolio/admin-categories.jpg" width="450px">            
+            </p>
+            <br>
+            <p>
+                <h5>Manage incoming contacts</h5>
+                <br>
+                <img src="/assets/images/quick-portfolio/admin-contacts.png" width="450px">          
+            </p>  
+            <br>
+            <p>
+                <h5>Responsive Design</h5>
+                <br>
+                <img src="/assets/images/quick-portfolio/responsive-design1.jpg" width="450px">
+                <br>
+                <br>
+                <img src="/assets/images/quick-portfolio/mobile-design.jpg" width="250px">              
+                <br>
+                <br>
+                <img src="/assets/images/quick-portfolio/responsive-design2.jpg" width="450px">                       
+            </p>           
+        </div>
+    </div>    
+{{end}}

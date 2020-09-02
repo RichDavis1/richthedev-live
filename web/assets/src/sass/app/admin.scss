@@ -1,0 +1,141 @@
+.admin-container{
+    padding-top:50px;
+    width:80%;    
+    margin:auto;
+}
+.mce-notification-inner {display:none!important;}
+.tox-notifications-container{
+    display:none!important;    
+}
+
+.tox-tinymce{
+    border: 1px solid #000 !important;    
+}
+
+.tox-edit-area{
+    iframe{
+        background: #a5a5a5 !important;
+        color:#252c34 !important;
+        cursor:text !important;
+    }
+
+    cursor:text !important;
+}
+
+#tinymce{
+    color: #ededed !important;
+}
+
+.tiny-ta{
+    color: #ededed !important;    
+    background-color:#4e4e4e !important;
+}
+
+#post-content{
+    color: #ededed !important;        
+}
+
+.mce-content-body{
+    color: #ededed !important;    
+}
+
+.bar-item{
+    padding: 5px;
+    background-color: #3e3e3e;
+    border-radius: 3px;
+    width: 33%;    
+    text-align: center;
+    font-size: 1.2rem;
+    cursor:pointer;
+
+    &:hover{
+        opacity:.3;
+    }
+
+    &.active{
+        background-color:#5fc9e1;
+        color: #3e3e3e;
+    }
+}
+
+.admin-bar{
+    height: 40px;
+}
+
+#admin-container{
+    padding: 25px;
+    background-color: #3e3e3e;
+    border-radius: 3px;    
+
+    .display{
+        display:block;
+    }
+}
+
+#admin-portal{
+    input{
+        background-color: #6b6b6b;
+        color:#fff;
+        border: 1px solid #000;
+
+
+    }
+
+    ::placeholder{
+        color:#b7b7b7;     
+        opacity:.7;
+    }    
+}
+
+#post-settings{
+    input{
+        width:100%;
+    }
+}
+
+#admin-create #github-link{
+    height:20px;
+    width:20px;
+}
+
+#composer-link{
+    background:url('../images/composer1.png');
+    background-repeat: no-repeat;
+    background-position: center;    
+    height:20px;
+    width:20px;
+    background-size:contain;
+}
+
+#status{
+    margin-bottom: 15px;
+}
+
+.settings-wrap{
+    width: 65%;
+    padding-left: 25px;
+    margin-bottom:20px;
+
+    input[type=text], input[type=url], input[type=email]{
+        height:30px;
+        width: 80%;
+    }
+
+    .fa-check, .fa-times{
+        font-size:25px;
+    }
+}
+
+.message-content{
+    margin: 25px auto;
+    width:85%;
+
+    .message{
+        margin-top:10px;
+    }
+}
+
+.no-results{
+    text-align:center;
+    margin-top:15px;
+}

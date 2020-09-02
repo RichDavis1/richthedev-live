@@ -1,0 +1,74 @@
+{{define "base"}}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">      
+        <link href="https://fonts.googleapis.com/css2?family=Red+Rose&family=Roboto&family=Lato" rel="stylesheet">
+        <title>RichThe.Dev: The Adventures of a Full Stack Software Developer</title>
+        <meta name="description" content="Rich Davis is a full stack software developer, natural language processing enthusiast, and web developer. RichThe.Dev is where he showcases his problems, solutions, and projects.">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="RichThe.Dev: The Adventures of a Full Stack Software Developer">
+        <meta property="og:description" content="Rich Davis is a full stack software developer, natural language processing enthusiast, and web developer. RichThe.Dev is where he showcases his problems, solutions, and projects.">
+        <meta property="og:url" content="https://richthe.dev/">
+        <meta property="og:site_name" content="RichThe.Dev">
+        <link rel="canonical" href="https://richthe.dev/">    
+        <script src="https://use.fontawesome.com/09c7aba1ed.js"></script>  
+        <link rel="stylesheet" href="/assets/css/core.min.css">
+    </head>
+    <body>
+        <header id="nav_bar">
+            <div id="desktop-header">
+                <div class="nav-wrap">
+                    <a href="/">
+                        <div class="logo-wrap">
+                            <img src="/assets/images/richthedev1.png">
+                        </div>    
+                    </a>
+                    <div class="mid-nav-bar">
+                        <a href="/problems" class="container-toggle">Problems</a>
+                        <a href="/projects" class="container-toggle">Projects</a>
+                        <div class="container-toggle" id="contact-trigger">Contact</div>     
+                    </div>  
+                    <div class="fw">
+                        <a href="https://github.com/RichDavis1" class="mrl" target="_blank"><div class="header-icon github-grey"></div></a>
+                        <a href="https://www.linkedin.com/in/richdavis17/" target="_blank"><div class="header-icon linkedin-grey"></div></a>
+                    </div>                       
+                </div>
+            </div>
+            <div id="mobile-header">
+                <div class="nav-wrap">
+                    <div class="nav-wrap">
+                        <a href="/">
+                            <div class="logo-wrap">
+                                <img src="/assets/images/richthedev1.png">
+                            </div>    
+                        </a>
+                        <button class="hamburger hamburger--spin" id="hamburger" data-status="closed" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div id="mobile-nav" class="hidden">
+                    <a href="/problems" class="container-toggle">Problems</a>
+                    <a href="/projects" class="container-toggle">Projects</a>
+                    <div class="container-toggle" id="contact-trigger">Contact</div>
+                    <a href="https://github.com/RichDavis1" class="mrl" target="_blank"><div class="header-icon github-grey"></div></a>
+                    <a href="https://www.linkedin.com/in/richdavis17/" target="_blank"><div class="header-icon linkedin-grey"></div></a>                      
+                </div>    
+            </div>            
+        </header>
+        <div class="page-wrap" id="app">
+            {{template "content" .}}
+        </div>
+        <script charset="utf-8" src="/assets/js/app.bundle.js"></script>      
+        {{block "media_foot" .}}{{end}}  
+    </body>
+    <div></div>
+</html>
+{{end}}

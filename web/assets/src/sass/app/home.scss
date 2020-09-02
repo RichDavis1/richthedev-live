@@ -1,0 +1,358 @@
+.var-highlight{
+    color: #C0AD60;
+}
+.string-highlight{
+    /*color: rgba(253, 149, 90, 0.8);*/    
+    color:#e0db75;
+    white-space: pre;
+}
+
+#typewriterWrap{
+    position:relative;
+    /*width: 50%;*/
+    padding-top: 10%;
+}
+
+
+
+#typewriter{
+        /*position:absolute;
+        font-size: 2.1vw;
+        font-size: 3.5vw;*/
+        font-size: 5.5vh;
+        margin:0;
+        font-family: "Courier New";
+
+        &:after{
+            content: "|";
+            animation: blink 500ms linear infinite alternate;
+        }
+
+        color:#FFF;
+        width: 40%;
+        /*margin-top: 10%;
+        margin-left: 15%;*/
+
+        .bool{
+            /*color:#867cc4;  
+            color:#1f8ed2;  */
+            color:#aba0f1;       
+        }
+        .operator{
+            color:#f22d6d;
+        }
+}
+
+@-webkit-keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.tab{
+    tab-size:4;
+}
+
+.hero{
+    height: 50vh;
+    position: relative; 
+    width: 70%;
+    margin: auto;
+}
+
+.hero-bottom{
+    position: absolute;
+    bottom: 0;    
+
+    .icon{
+        height:50px;
+        width:50px;
+    }
+}
+
+.contact-trigger{
+    color: transparent !important;
+    cursor:pointer;
+
+    &:hover{
+        opacity:.3;
+    }    
+}
+
+#github-link{
+    background:url('../svg/github.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#linkedin-link{
+    background:url('../svg/linkedin.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+@media only screen and (min-width : 1200px) and (orientation:landscape){
+    #typewriterWrap{
+        padding-top:12%;
+    } 
+
+    #typewriter{
+        font-size:5.5vh;
+    }    
+
+    .hero{
+        width:70%;
+    }
+}
+
+@media only screen and (min-width : 1024px) and (max-width:1200px) and (orientation:landscape){
+    #typewriterWrap{
+        padding-top:15%;
+    } 
+
+    #typewriter{
+        font-size:5vh;
+    }    
+
+    .hero{
+        width:80%;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape){ 
+    #typewriterWrap{
+        padding-top:15%;
+    }   
+
+    #typewriter{
+        font-size:4.5vh;
+    }  
+
+    .hero{
+        width:80%;
+    }
+}
+
+/*consider revisiting this one */
+@media screen and (min-width:450px) and (max-width:768px) and (orientation:landscape){
+    #typewriterWrap{
+        padding-top:15%;
+    }   
+
+    #typewriter{
+        font-size:4.5vh;
+    }  
+
+    .hero{
+        width:70%;
+    }
+}
+
+
+/*Portrait*/
+@media only screen and (min-width : 1024px) and (orientation:portrait){
+    #typewriterWrap{
+        padding-top:15%;
+    }
+
+    #typewriter{
+        font-size: 5.5vw;
+    }    
+
+    .hero{
+        width:70%;
+    }
+}
+
+@media screen and (min-width:568px) and (max-width:1024px) and (orientation:portrait){ 
+    #typewriterWrap{
+        padding-top:25%;
+    }   
+    
+    #typewriter{
+        font-size:4.5vw;
+    }  
+
+    .hero{
+        width:70%;
+    }
+}
+
+@media screen and (orientation:portrait){
+    #typewriter{
+        font-size:4.5vw;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    #typewriterWrap{
+        padding-top:35%;
+    }
+
+    #typewriter{
+        font-size:5vw;
+    }
+
+    .hero{
+        width: 90%;
+    }    
+}
+
+/*
+@media screen and (min-width:768px) and (max-width:1024px) and (orientation:portrait){ 
+    #typewriterWrap{
+        padding-top:25%;
+    }   
+    
+    #typewriter{
+        font-size:4.5vw;
+    }  
+
+    .hero{
+        width:70%;
+    }
+}
+
+
+/*
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    #typewriterWrap{
+        padding-top:35%;
+    }
+
+    #typewriter{
+        font-size:5vw;
+    }
+
+    .hero{
+        width: 90%;
+    }    
+}
+*/
+
+
+/*
+@media screen and (min-width:768px) and (max-width:1024px){
+    #typewriter{
+        font-size:4.5vw;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width: 768px){
+    #typewriter{
+        font-size:5vw;
+
+    }  
+
+    #typewriterWrap{
+        padding-top:15%;
+    }
+    
+    .hero{
+        width: 90%;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    #typewriter{
+        font-size:5vw;
+
+    }  
+
+    #typewriterWrap{
+        padding-top:15%;
+    }
+    
+    .hero{
+        width: 90%;
+    }    
+}
+
+@media screen and (orientation:landscape) {
+    #typewriter{
+        font-size:3.5vh;
+
+    }  
+
+    #typewriterWrap{
+        padding-top:15%;
+    }
+    
+    .hero{
+        width: 90%;
+    }    
+}
+
+
+@media screen and (min-width:400px) and (max-width:500px){
+    #typewriterWrap{
+        padding-top:25%;
+    }
+
+    #typewriter{
+        font-size:5vw;
+    }
+
+    .hero{
+        width: 90%;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    #typewriterWrap{
+        padding-top:35%;
+    }
+
+    #typewriter{
+        font-size:5vw;
+    }
+
+    .hero{
+        width: 90%;
+    }    
+}
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+    #typewriter{
+        font-size:5vw;
+
+    }  
+
+    #typewriterWrap{
+        padding-top:25%;
+    }
+    
+    .hero{
+        width: 90%;
+    }
+}
+
+*/

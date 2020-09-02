@@ -1,0 +1,133 @@
+.multi-select-dropdown, select{
+    cursor: pointer;
+    width: 200px;
+    border-radius: 2px;
+    font-size: 15px !important;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    box-shadow: none;
+    height: 30px !important;
+    padding-left: 15px;
+    line-height: 30px !important;
+    color: #293f52;
+    font-weight: 700;
+    background-image: linear-gradient(to bottom, #c7cee6 0%, #709aba 100%);   
+    text-align:left; 
+}
+
+.dheader{
+    height: 30px;
+    line-height: 30px;    
+}
+
+.select-default{
+    font-size: inherit;
+    line-height: inherit;    
+}
+
+.sort-arrow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    /* display: block; */
+    width: 24px;
+    height: 100%;    
+}
+
+.dropdown-body{
+    display:none;
+    padding:10px;
+    margin-top: 0;
+    width: calc(100% + 2px);
+    box-shadow: none;
+    /* border: .5px solid #121212; */
+    left: -1px;
+    background-color: #c7cee6;
+    border-radius: 0 0 4px 4px;
+    background-clip: padding-box;
+    position: absolute;
+    top: 100%;
+    z-index: 1010;
+    box-sizing: border-box;    
+}
+
+.msw{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;    
+}
+
+.checkmark-box{
+    display: block;
+    padding: 0;
+    overflow: visible;
+    font: inherit;
+    margin: 0;
+    box-sizing: inherit;
+    background-color: initial;
+    cursor: pointer;
+    border: initial;
+    -webkit-appearance: checkbox;
+    -webkit-rtl-ordering: logical;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-writing-mode: horizontal-tb !important;
+    background-color: #f1f1f1!important;
+    width: 15px;
+    height: 15px;
+}
+
+.checkmark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 13px;
+    background-color: #3498db;
+    color: #FFF;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;    
+}
+
+.checkbox-wrap.inactive{
+    .checkmark{
+        display:none;
+    }
+}
+.checkbox-wrap.active{
+    .checkmark{
+        display:flex;
+    }
+
+    .checkmark-box{
+        display:none;
+    }
+}
+
+
+.mswtitle{
+    margin-left:15px;
+}
+
+select{
+    text-indent: 10px;
+    
+    option{
+        background-color: #c7cee6;
+        padding:10px; 
+        color: #293f52;
+        font-size: 15px !important;
+    }
+}

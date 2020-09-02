@@ -1,0 +1,107 @@
+{{define "content"}}
+    <div class="container" id="single-post">
+        <div class="categories-wrapper">   
+            {{if .Cats}}
+                {{range .Cats}}
+                    <div class="category-tab" style="border-color: {{ .BackgroundColor| safeHtml }}">
+                        <div class="category-item" style="color: {{ .BackgroundColor| safeHtml }}">{{.Label}}</div>
+                    </div>                       
+                {{end}}
+            {{end}}    
+        </div>
+
+        <div class="blog-header">
+            <h2>{{.Title}}</h2>
+        </div>
+        <div class="blog-additional fw">
+            {{if .GithubLink}}
+                <div class="link-wrap ttip">
+                    <a href="{{.GithubLink}}" target="_blank"><div id="github-link"></div></a>
+                    <div class="tttext">
+                        Check Code on Github
+                    </div>
+                </div>    
+            {{end}}
+            {{if .ComposerLink}}
+            <div class="link-wrap ttip">
+                <a href="{{.ComposerLink}}" target="_blank"><div id="composer-link"></div></a>
+                <div class="tttext">
+                    Download Package on Composer
+                </div>    
+            </div>  
+            {{end}}
+
+        </div>
+        <div class="blog-body">
+            <p></p>
+            <p>          
+                Have you grown to hate clickbait titles including the following (ignoring the categories of this post of course): 'AI', 'machine learning', 'deep learning', 'neural networks'?             
+            </p>                          
+            <p>
+                Same.
+            </p>
+            <p>
+                It hit me hard one day when the major 'AI developed by Microsoft and Alibaba reads better than humans.' report came out a year or so ago. If you opened up google, it looked something like this:
+            </p>
+            <p>
+                <img src="https://i.imgur.com/6TJCQOk.png" height="350px" style="height:350px">
+            </p>
+            <p> 
+                <i></i>
+            </p>
+            <p>
+                Anyone who is about apart of the natural language processing community knows this is absolute nonsense, misleading at best. The SQuAD test, is an extremely narrow 
+                assessment of a machines ability to comprehend text. The test involves a network answering 10,000 very basic questions from excerpts on Wikipedia. To be counted as correct, 
+                the network has choose one of three available answers to the question. All this effectively tests is querying and slight recall.
+            </p>
+            <p></p>
+            <p>
+                Yet the media went hog wild. My favorite article was from Newsweek: 
+                <a href="https://www.newsweek.com/robots-can-now-read-better-humans-putting-millions-jobs-risk-781393" target="_blank">Robots Can Now Read Better Than Humans, Putting Millions of Jobs at Risk</a>.
+                
+            </p>
+            <p>
+                Here is what the current state of NLP is really like:
+                <br>
+                We provide this sentence to the program : "Tom betrayed Jessica in a battle of wit". And ask this question: "Who betrayed Jessica?".    
+            </p>
+            <p>
+                The program will of course answer "Tom". 
+            </p>
+            <p>
+                If we ask "Who sold out Jessica in a mental battle?", the program will fumble.
+            </p>
+            <p>
+                We have a very far way to go with truly flexible NLP. This sensationalizing stirred me up enough to start thinking about how we'd go about teaching programs to legitimately comprehend language.
+            </p>
+            <p> 
+                This is the very basis for HIM, a natural language processing program I started several months ago. The aim is to start creating the architecture for a flexible AI program that learns the millions 
+                of components that make up language, not correct vectors for a question, or look up of a phrase.
+            </p>
+            <p>
+                Here is HIM and I training greetings in a chat portal where we perform spot & reinforcement training: 
+            </p>
+            <p>
+                <img src="https://i.imgur.com/yJY6Y19.png">
+            </p>
+            <br>
+            <p>
+                Our approach is fundamentally different from others in the field. Most focus on creating a 4 million word vocabulary, brute forcing billions of corpus' through the network to effectively answer a question or predict the next word in a sentence.
+                That approach will consistently yield similar results every time: a narrow solution to a narrow problem. Language is exponentially more nuanced than that however. There are millions of inferences and categorizations our brain
+                makes every time we exchange language. 
+            </p>
+            <p>
+                The goal is to replicate these categorizations to truly be able to inference and comprehend, not provide the target to a sample. To do this we must train the program on the very fundamentals of language, and that's where I'm at with HIM.
+                Furthermore, the program needs to understand the rules of language. The NLP community has decided to ignore these constants but they are fundamental for a program to understand language at a granular level.
+            </p>
+            <p>
+                While HIM is still in his infancy, he currently utilizes over 50 models with networks consisting of recurrent LSTM, multilayer perceptron classifier, multilayer perceptron regressor, Word2Vec,
+                and several more.   
+                Every exchange, HIM runs the text through a large chained network of models classifying items from parts of speech up to saving the direct objects & their descriptors of possessive statements.                 
+            </p>
+            <p>
+                HIM will never be complete, and I'm aware of that. Every small step in NLP requires a massive amount of work, these steps still need to be taken regardless. 
+            </p>       
+        </div>
+    </div>    
+{{end}}

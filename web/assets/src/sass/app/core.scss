@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    font-family: 'Roboto', cursive; 
+}
+
+.page-wrap{
+    top:60px;
+    position: relative;
+    min-height:calc(100vh - 60px);
+    /*background-color:#3a4047;
+    background-color:#171717;*/
+    background-color:#1d1d1d;
+    color:#ededed;
+    padding-bottom: 50px;
+    z-index:2;
+}
+
+.container{
+    padding-top: 50px;
+    width: 65%;
+    margin: auto;    
+}
+
+.card{
+    background-color: #3a4047;        
+}
+pre{
+    color:#fff;
+}
+.quickstart{
+    height:100vh;
+    top:0;
+}
+/*colors
+blue #5fc9e1
+red #fa7681
+dark blue #070d27
+
+yellow #fdd784
+
+*/

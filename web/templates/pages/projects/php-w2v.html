@@ -1,0 +1,153 @@
+{{define "content"}}
+    <div class="container" id="single-post">
+        <div class="categories-wrapper">   
+            {{if .Cats}}
+                {{range .Cats}}
+                    <div class="category-tab" style="border-color: {{ .BackgroundColor| safeHtml }}">
+                        <div class="category-item" style="color: {{ .BackgroundColor| safeHtml }}">{{.Label}}</div>
+                    </div>                       
+                {{end}}
+            {{end}}    
+        </div>
+
+        <div class="blog-header">
+            <h2>{{.Title}}</h2>
+        </div>
+        <div class="blog-additional fw">
+            {{if .GithubLink}}
+                <div class="link-wrap ttip">
+                    <a href="{{.GithubLink}}" target="_blank"><div id="github-link"></div></a>
+                    <div class="tttext">
+                        Check Code on Github
+                    </div>
+                </div>    
+            {{end}}
+            {{if .ComposerLink}}
+            <div class="link-wrap ttip">
+                <a href="{{.ComposerLink}}" target="_blank"><div class="composer-icon"></div></a>
+                <div class="tttext">
+                    Download Package on Composer
+                </div>    
+            </div>  
+            {{end}}
+
+        </div>
+        <div class="blog-body">
+            <p> 
+                Of the programs I've created for PHP that should only exist in other languages, <a href="https://github.com/RichDavis1/PHPW2V" target="_blank">this</a> takes the cake. This was a very fun algorithm to work with however and led to me becoming
+                a contributor to the <a href="https://rubixml.com/" target="_blank">Rubix ML Library</a>. (See Github or Composer links above if you're trying to download the package);
+            </p>
+            <p>          
+                What is word2vec? To answer this, we'll need to take a step back. 
+            </p>
+            <p>
+                When training neural networks, we need to present our sample data in the form of vectors. This is a fairly straight-forward task in most machine learning subgroups, vision for example.
+                In NLP however, things become murky. The problem lies in the fact that our sample data is not numerical. Even worse, how are we supposed to create information rich vectors 
+                when all we have are blobs of strings?            
+            </p>
+            <p>          
+                This is where Word2Vec comes in. Word2Vec is a shallow, two-layer neural network that produces vectors, which we call word embeddings, for words. 
+                The algorithm is also capable of some cool things itself. For example:             
+            </p>
+            <p>            
+                Finding the most similar words in a corpous to the word 'dogs' (this example is from a small 2,000 sentence sample set):
+            </p>        
+            <p>
+                <code>
+                    $result = $word2Vec->mostSimilar(['dogs']);
+                    <br>
+                    print_r($result);                
+                </code>  
+            </p>        
+            <p>
+            <img src="https://i.imgur.com/uJCxEqG.png">            
+            </p>
+            <p>          
+                <br>    
+                Or perhaps the most famous example, finding the most similar words given positively and negatively associated words. Here, we are running king + woman (positive words) - man (negative word) which equals queen:
+            </p>        
+            <p>
+                <code>
+                    $result = $word2Vec->mostSimilar(['king', 'woman'], ['man']);
+                    <br>
+                    print_r($result);                
+                </code>  
+            </p>
+            <p>          
+                <img src="https://i.imgur.com/ng1wlBh.png">            
+            </p>   
+            <p>
+                <br> 
+                So how does this work? In NLP, all we really have are the words, their distance from each other, and their overall count in the corpus. 
+                As it turns out, words similar to each other are surrounded by other similar words. So what we do is iterate through each word in a corpus
+                and create a target being the word itself and a sample being the words surrounding it. A visualization with a window size of 1:  
+            </p>     
+            <p>
+                <img src="https://i.imgur.com/nnL6kLs.png">
+            </p>
+            <p>
+                <br>
+                We then train our network utilizing the skip-gram model. A visualization (source 
+                <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank">the original word2vec paper</a>): 
+            </p>
+            <p>
+                <img src="https://i.imgur.com/3EZ1FHD.png" style="height:300px">
+            </p>
+            <p>
+                <br>
+                For training the pairs, we have a couple of optimization algorithms we can utilize. The most popular being hierarchical softmax and negative sampling.
+                We can also eliminate 'noisy' words ('the', 'it', etc) via subsampling. 
+            </p>
+            
+            <br>
+            <h4>Hierarchical Softmax</h4>        
+            <p>
+                <br>
+                
+                For hierarchical softmax, we utilize a Huffman binary tree, where each leaf represents
+                a word in the models vocabulary, and each node represents the probability of that word provided a distinct path. Discovery & calculation provided by 
+                <a href="https://www.iro.umontreal.ca/~lisa/pointeurs/hierarchical-nnlm-aistats05.pdf" target="_blank">Morin & Bengio</a>, visualization provided by
+                <a href="https://arxiv.org/pdf/1411.2738.pdf">Xin Rong</a>:        
+            </p>
+            <p>
+                <img src="https://i.imgur.com/KVR5zJF.png" style="width: 350px;">
+            </p>
+            <p>
+            The binary tree allows us to compute softmax up to 50x faster than a traditional softmax layer. Translating this to code, we first must build a heap optimized by word count:  
+            </p>
+            <p>
+                <img src="https://i.imgur.com/Xexg9u6.png">
+            </p>
+            <p>
+                We then recurse the tree and assign a binary code and pointer to each word, which helps us find the correct word index to train and calculate gradient descent: 
+            </p>
+            <p>
+                <img src="https://i.imgur.com/AtUxvLE.png">
+            </p>
+            <p>
+            </p>    
+            <br>
+            <h4>Negative Sampling</h4>        
+            <p>
+                <br>
+                The process for negative sampling is more straight-forward. The core concept here is that we present target words a negative sample so the model learns to differentiate 
+                them. By doing so, we reduce a significant amount of calculation bandwidth by foregoing updating all word weights (a lot of nodes!) after each training sample. 
+                Translating this to code, we create a cumulative distribution table to draw random words:      
+            </p>
+            <p>
+                <img src="https://i.imgur.com/hVjFfzf.png">
+            </p>
+
+            <br>
+            <h4>Putting It All Together</h4>
+            <p>
+                <br>
+                If you're still reading, God bless your soul. Lord knows I felt the same way when I embarked on this project and still have a lot to learn. To calculate the words most similar to a target word,
+                we calculate the weighted average for every provided word's vector and compare it to every word vector in our vocab via cosine similarity. The result is a probability for every word in our model:   
+            </p>
+            <p>
+                <img src="https://i.imgur.com/WXsHcts.png">
+            </p>         
+        </div>
+    </div>    
+{{end}}

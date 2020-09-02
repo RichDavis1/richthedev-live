@@ -1,0 +1,148 @@
+.fwsbnc{
+    display:flex;
+    justify-content:space-between;
+}
+
+.fwsb{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.fwsbb{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+}
+
+.fwc{
+    display: flex;
+    justify-content: center;
+}
+
+.fw{
+    display:flex;
+    align-items:center;
+}
+
+.fwfe{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+.ps{
+    padding:10px;
+}
+
+.plrl{
+    padding:0px 35px;
+}
+
+.prm{
+    padding-right:15px;
+}
+
+.prs{
+    padding-right:10px;
+}
+
+.plm{
+    padding-left:15px;
+}
+
+.prmm{
+    padding-right:5px;
+}
+
+
+.mrl{
+    margin-right:30px;
+}
+
+.mrm{
+    margin-right:20px;
+}
+
+.mrs{
+    margin-right:10px;
+}
+
+.mrmm{
+    margin-right:5px;
+}
+
+.mbmm{
+    margin-bottom:10px;
+}
+
+.mbs{
+    margin-bottom:15px;
+}
+
+.mts{
+    margin-top:15px;
+}
+
+.mtm{
+    margin-top:25px;
+}
+
+.mtl{
+    margin-top:35px;
+}
+
+
+.hidden{
+    display:none;
+}
+.ar{
+    text-align:right;
+}
+
+.tc{
+    text-align:center;
+}
+
+.ttip {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+}
+
+.ttip .tttext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.ttip .tttext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.ttip:hover .tttext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.action-item{
+    color:#5fc9e1;
+}

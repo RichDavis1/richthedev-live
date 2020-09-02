@@ -1,0 +1,59 @@
+{{define "content"}}
+
+<div class="blog-container">
+    <div>
+        <div class="blog-list">
+           {{range .Projects}}
+                <div class="blog-item-container">
+                    <div class="blog-item-wrapper" style="background-color: {{ .BackgroundColor| safeHtml}}">                
+                        <a href="/project/{{.Slug}}">
+                            <div class="categories-wrapper" style="color: {{ .TextColor| safeHtml}}">
+                                {{if .Cats}}
+                                    {{range .Cats}}
+                                        <div class="category">{{.Label}}</div> 
+                                    {{end}}
+                                {{end}}
+                            </div>
+                            
+                            <div class="blog-item" style="color: {{ .TextColor| safeHtml}}">
+                                <h3>{{.Title}}</h3>
+                                <div class="blog-text">
+                                    {{noescape .Preview}}
+                                </div>   
+                                <div class="fwsbb blog-item-footer">
+                                    <div class="read-time">
+                                    {{if .ReadTime}}
+                                        {{.ReadTime}} MIN READ
+                                    {{end}}
+                                    </div> 
+                                    <div class="fw">
+                                        {{if .GithubLink}}
+                                            <div class="link-wrap ttip">
+                                                <div id="github-link"></div>
+                                                <div class="tttext">
+                                                    Check Code on Github
+                                                </div>
+                                            </div>
+                                        {{end}}
+                                        {{if .ComposerLink}}
+                                            <div class="link-wrap ttip">
+                                                <div class="composer-icon"></div>
+                                                <div class="tttext">
+                                                    Composer Installation
+                                                </div>
+                                            </div>
+                                        {{end}}                                        
+                                    </div>
+                                </div>                               
+                            </div>  
+                        </a>        
+                    </div>
+                </div>
+            {{end}}
+        </div> 
+    </div>  
+</div>
+
+{{end}}
+{{define "media_foot"}}
+{{end}}
